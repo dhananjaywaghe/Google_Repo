@@ -4,12 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [],
-                          submoduleCfg: [],
-                          userRemoteConfigs: [[url: 'https://github.com/dhananjaywaghe/Google_Repo.git']]])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/dhananjaywaghe/Google_Repo.git']])
             }
         }
         
